@@ -13,7 +13,7 @@ class ConversionController extends Controller {
         $validated = $request->validate(['integer' => 'required|integer|min:1|max:3999']);
 
         // Convert to Roman numeral
-        $romanValue = $this->toRoman($validated['integer']);
+        $romanValue = $converter->convertInteger( $validated['integer'] );
 
         // Store conversion
         Conversion::create(['integer_value' => $validated['integer'], 'roman_value' => $romanValue]);

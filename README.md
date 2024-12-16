@@ -1,8 +1,11 @@
 # Roman Numerals Tech Task
-This development task is based on the simple process of converting Roman numerals. This task requires you to build a JSON API and so any HTML, CSS or JavaScript that is submitted will not be reviewed.
+This development task is based on the simple process of converting Roman numerals. 
+This task requires you to build a JSON API and so any HTML, CSS or JavaScript that is submitted will not be reviewed.
 
 ## Brief
-Our client (Numeral McNumberFace) requires a simple RESTful API which will convert an integer to its Roman numeral counterpart. After our discussions with the client, we have discovered that the solution will contain three API endpoints, and will only support integers ranging from 1 to 3999. The client wishes to keep track of conversions so they can determine which is the most frequently converted integer, and the last time this was converted.
+Our client (Numeral McNumberFace) requires a simple RESTful API which will convert an integer to its 
+Roman numeral counterpart. After our discussions with the client, we have discovered that the solution 
+will contain three API endpoints, and will only support integers ranging from 1 to 3999. The client wishes to keep track of conversions so they can determine which is the most frequently converted integer, and the last time this was converted.
 
 ### Endpoints Required
 1. Accepts an integer, converts it to a Roman numeral, stores it in the database and returns the response.

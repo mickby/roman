@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Models;
-class Conversion extends Model {
+
+use Illuminate\Database\Eloquent\Model;
+
+class Conversion extends Model
+{
     protected $fillable = ['integer_value', 'roman_value'];
 }
