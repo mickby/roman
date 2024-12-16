@@ -1,16 +1,20 @@
 <?php
 
 namespace App\Services;
-
-class RomanNumeralConverter
+class RomanNumeralConverter implements IntegerConverterInterface
 {
+    public function convertInteger(int $integer): string
+    {
+
+        return "string";
+    }
 
 }
 
 
 #todo
 /*
- * use interface
+ * use interface [x]
  * use REST
  * 3 endpoints
  * 1-3999
