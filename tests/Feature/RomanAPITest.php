@@ -22,9 +22,24 @@ class RomanAPITest extends TestCase {
         ]);
     }
 
-    # Could add tests to test the validation (by passing a string or an int
-    # which is out of range) but I don't see the point because that is just
-    # testing Laravel.
+    public function test_invalid_integer_big_is_not_valid() {
+        $response = $this->postJson(route('convert'), ['integer' => 50000]);
+        $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
+    }
+    public function test_zero_is_not_valid() {
+        $response = $this->postJson(route('convert'), ['integer' => 0]);
+        $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
+    }
+
+    public function test_string_is_not_valid() {
+        $response = $this->postJson(route('convert'), ['integer' => 'bad']);
+        $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
+    }
+
+    public function test_integer_is_required() {
+        $response = $this->postJson(route('convert'));
+        $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
+    }
 
 
     public function test_result_is_returned() {
@@ -63,7 +78,7 @@ class RomanAPITest extends TestCase {
 
     public function test_can_get_top_conversions()
     {
-        #seed the top 10
+        #seed the top 10 (could be any ten)
         $top = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
         for ($i = 0; $i < 10; $i++) {
             $conversion = Conversion::factory()
@@ -87,6 +102,5 @@ class RomanAPITest extends TestCase {
         self::assertEquals($topInts, [1,2,3,4,5,6,7,8,9,10]);
 
     }
-
 
 }
