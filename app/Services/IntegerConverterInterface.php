@@ -6,6 +6,4 @@ interface IntegerConverterInterface
 {
     public function convertInteger(int $integer): string;
 
-
-
 }

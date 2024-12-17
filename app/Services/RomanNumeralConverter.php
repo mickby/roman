@@ -1,11 +1,19 @@
 <?php
 
 namespace App\Services;
+
+use App\Services\IntegerConverterInterface;
+
 class RomanNumeralConverter implements IntegerConverterInterface
 {
+    /**
+     * Convert an integer to its Roman numeral representation.
+     *
+     * @param int $integer The integer to convert.
+     * @return string The Roman numeral representation of the integer.
+     */
     public function convertInteger(int $integer): string
     {
-
         // Define the mapping of integers to Roman numerals
         $map = [
             1000 => 'M',
@@ -30,14 +38,10 @@ class RomanNumeralConverter implements IntegerConverterInterface
             // While the number is greater than or equal to the value
             while ($integer >= $value) {
                 $roman .= $symbol; // Append the Roman numeral
-                $integer -= $value;    // Decrease the number
+                $integer -= $value; // Decrease the number
             }
         }
 
-        return $roman; // Return the final Roman numeral
+        return $roman;
     }
-
-
 }
-
-

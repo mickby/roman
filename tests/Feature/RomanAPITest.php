@@ -1,5 +1,6 @@
 <?php
 
+namespace Tests\Feature;
 
 use App\Models\Conversion;
 use Carbon\Carbon;
@@ -7,7 +8,7 @@ use Illuminate\Http\Response;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class RomanApiTest extends TestCase {
+class RomanAPITest extends TestCase {
     use RefreshDatabase;
 
     public function test_convert_valid_integer_is_stored() {
@@ -21,7 +22,7 @@ class RomanApiTest extends TestCase {
         ]);
     }
 
-    #could add tests to test the validation (by passing a string or an int
+    # Could add tests to test the validation (by passing a string or an int
     # which is out of range) but I don't see the point because that is just
     # testing Laravel.
 

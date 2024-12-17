@@ -31,22 +31,12 @@ Please create a [git bundle](https://git-scm.com/docs/git-bundle/) and send the 
 git bundle create <yourname>.bundle --all --branches
 ```
 
-
-#todo
 /*
 * use interface [x]
-* form request []
+* form request [x]
 * use REST
-* 3 endpoints
 * 1-3999 [x]
-* most frequently converted
-* last time converted
-* docbocks
-*
-* Endpoints
-* int to numeral store numeral
-* list all "recently" converted ints
-* list top 10 converted ints
+* docbocks [x]
 * resource for the response
 * validation not in controller
 * clean code
