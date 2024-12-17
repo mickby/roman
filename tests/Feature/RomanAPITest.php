@@ -38,14 +38,4 @@ class RomanApiTest extends TestCase {
             ],
         ]);
     }
-
-
-
-    # Resource response
-# count is incremented
-# validation too high
-# validate string
-
-
-
 }
