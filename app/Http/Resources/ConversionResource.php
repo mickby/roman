@@ -14,6 +14,9 @@ class ConversionResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'integer_value' => $this->integer_value,
+            'roman_value' => $this->roman_value,
+        ];
     }
 }

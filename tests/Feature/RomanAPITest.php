@@ -1,6 +1,8 @@
 <?php
 
 
+use App\Models\Conversion;
+use Illuminate\Http\Response;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -8,9 +10,9 @@ class RomanApiTest extends TestCase {
     use RefreshDatabase;
 
     public function test_convert_valid_integer_is_stored() {
-        $response = $this->postJson('/api/convert', ['integer' => 10]);
+        $response = $this->postJson(route('convert'), ['integer' => 10]);
 
-        $response->assertStatus(200); ## todo use constants
+        $response->assertStatus(Response::HTTP_CREATED);
 
         $this->assertDatabaseHas('conversions', [
             'integer_value' => 10,
@@ -24,18 +26,32 @@ class RomanApiTest extends TestCase {
 
 
     public function test_result_is_returned() {
-        $response = $this->postJson('/api/convert', ['integer' => 10]);
+        $response = $this->postJson(route('convert'), ['integer' => 10]);
 
-        $response->assertStatus(201);
+        $response->assertStatus(Response::HTTP_CREATED);
 
         $response->assertJsonStructure([
             'data' => [
                     'integer_value',
-                    'roman_value',
-                    'updated_at',
-                    'created_at',
-                    'id',
+                    'roman_value'
             ],
         ]);
     }
+
+    public function test_can_get_recent_conversions()
+    {
+        #faker?
+        #model factory
+        #resource collection
+
+        $conversion = Conversion::factory()->create(100);
+
+        $response = $this->postJson(route('recent'));
+
+
+    }
+
+    // use named routes
+    ## todo use constants
+
 }

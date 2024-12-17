@@ -9,10 +9,10 @@ will contain three API endpoints, and will only support integers ranging from 1 
 The client wishes to keep track of conversions so they can determine which is the most frequently converted integer, and the last time this was converted.
 
 ### Endpoints Required
-1. Accepts an integer, converts it[ConversionResource.php](app/Http/Resources/ConversionResource.php) to a Roman numeral, stores it in the database 
-and returns the response.
-2. Lists all the recently converted integers.
-3. Lists the top 10 converted integers.
+1. Accepts an integer, converts it in to a Roman numeral, stores it in the database 
+and returns the response. [x]
+2. Lists all the recently converted integers. []
+3. Lists the top 10 converted integers. []
 
 ## What we are looking for
 - Use of MVC components (View in this instance can be, for example, a Laravel Resource).

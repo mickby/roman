@@ -15,6 +15,6 @@ use App\Http\Controllers\ConversionController;
 |
 */
 
-Route::post('/convert', [ConversionController::class, 'convert']);
-Route::get('/recent', [ConversionController::class, 'recentConversions']);
-Route::get('/top', [ConversionController::class, 'topConversions']);
+Route::post('/convert', [ConversionController::class, 'convert'])->name('convert');
+Route::get('/recent', [ConversionController::class, 'recentConversions'])->name('recent');
+Route::get('/top', [ConversionController::class, 'topConversions'])->name('top');
