@@ -58,7 +58,34 @@ class RomanApiTest extends TestCase {
             $this->assertEquals(Carbon::today()->toDateString(), Carbon::parse($conversion['created_at'])->toDateString());
         }
 
+    }
+
+    public function test_can_get_top_conversions()
+    {
+        #seed the top 10
+        $top = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+        for ($i = 0; $i < 10; $i++) {
+            $conversion = Conversion::factory()
+                ->count(100)
+                ->create([
+                    'roman_value' => $top[$i],
+                    'integer_value' => $i+1
+                ]);
+        }
+
+        #now a few random ones
+        $conversion = Conversion::factory()->count(500)->create();
+
+        $response = $this->getJson(route('top'));
+
+        #check that the response contains the top 10 models
+        $response->assertStatus(Response::HTTP_OK);
+        $this->assertCount(10, $response->json('data'));
+        $topInts = array_column($response->json('data'),'integer_value');
+        sort($topInts);
+        self::assertEquals($topInts, [1,2,3,4,5,6,7,8,9,10]);
 
     }
+
 
 }

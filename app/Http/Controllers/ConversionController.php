@@ -32,11 +32,14 @@ class ConversionController extends Controller {
     }
 
     public function topConversions() {
-        return Conversion::select('integer_value', DB::raw('count(*) as count'))
+        $conversions =  Conversion::select('integer_value', DB::raw('count(*) as count'))
             ->groupBy('integer_value')
             ->orderBy('count', 'desc')
             ->take(10)
             ->get();
+
+        return new ConversionCollection($conversions);
+
     }
 
 

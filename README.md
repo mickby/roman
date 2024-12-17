@@ -11,7 +11,7 @@ The client wishes to keep track of conversions so they can determine which is th
 ### Endpoints Required
 1. Accepts an integer, converts it in to a Roman numeral, stores it in the database 
 and returns the response. [x]
-2. Lists all the recently converted integers. []
+2. Lists all the recently converted integers. [x]
 3. Lists the top 10 converted integers. []
 
 ## What we are looking for
