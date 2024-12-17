@@ -5,10 +5,12 @@ This task requires you to build a JSON API and so any HTML, CSS or JavaScript th
 ## Brief
 Our client (Numeral McNumberFace) requires a simple RESTful API which will convert an integer to its 
 Roman numeral counterpart. After our discussions with the client, we have discovered that the solution 
-will contain three API endpoints, and will only support integers ranging from 1 to 3999. The client wishes to keep track of conversions so they can determine which is the most frequently converted integer, and the last time this was converted.
+will contain three API endpoints, and will only support integers ranging from 1 to 3999. 
+The client wishes to keep track of conversions so they can determine which is the most frequently converted integer, and the last time this was converted.
 
 ### Endpoints Required
-1. Accepts an integer, converts it to a Roman numeral, stores it in the database and returns the response.
+1. Accepts an integer, converts it[ConversionResource.php](app/Http/Resources/ConversionResource.php) to a Roman numeral, stores it in the database 
+and returns the response.
 2. Lists all the recently converted integers.
 3. Lists the top 10 converted integers.
 

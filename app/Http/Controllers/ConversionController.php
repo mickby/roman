@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreConversionRequest;
+use App\Http\Resources\ConversionResource;
 use App\Models\Conversion;
 use App\Services\IntegerConverterInterface;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ConversionController extends Controller {
@@ -13,8 +13,9 @@ class ConversionController extends Controller {
 
         $validated = $request->validated();
         $romanValue = $converter->convertInteger( $validated['integer'] );
-        Conversion::create(['integer_value' => $validated['integer'], 'roman_value' => $romanValue]);
-        return response()->json(['roman' => $romanValue]);
+        $conversion = Conversion::create(['integer_value' => $validated['integer'], 'roman_value' => $romanValue]);
+
+        return new ConversionResource($conversion);
     }
 
     public function recentConversions() {
