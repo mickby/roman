@@ -8,5 +8,4 @@ interface IntegerConverterInterface
 
 
 
-    #todo stub other methods
 }

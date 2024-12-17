@@ -12,7 +12,7 @@ The client wishes to keep track of conversions so they can determine which is th
 1. Accepts an integer, converts it in to a Roman numeral, stores it in the database 
 and returns the response. [x]
 2. Lists all the recently converted integers. [x]
-3. Lists the top 10 converted integers. []
+3. Lists the top 10 converted integers. [x]
 
 ## What we are looking for
 - Use of MVC components (View in this instance can be, for example, a Laravel Resource).
@@ -56,4 +56,5 @@ git bundle create <yourname>.bundle --all --branches
 * short explanation of approach - could use repository
 * factory could be better?
 * latest features of Laravel
+* repository
   */
