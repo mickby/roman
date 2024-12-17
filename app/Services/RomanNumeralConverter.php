@@ -44,11 +44,13 @@ class RomanNumeralConverter implements IntegerConverterInterface
 #todo
 /*
  * use interface [x]
+ * form request []
  * use REST
  * 3 endpoints
  * 1-3999 [x]
  * most frequently converted
  * last time converted
+ * docbocks
  *
  * Endpoints
  * int to numeral store numeral
@@ -60,6 +62,6 @@ class RomanNumeralConverter implements IntegerConverterInterface
  * check pSR 12
  * php 8.3 features used?
  *
- * short explanation of approach
+ * short explanation of approach - could use repository
  * latest features of Laravel
 */

@@ -2,22 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreConversionRequest;
 use App\Models\Conversion;
 use App\Services\IntegerConverterInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ConversionController extends Controller {
-    public function convert(Request $request, IntegerConverterInterface $converter ) {
-        // Validate input
-        $validated = $request->validate(['integer' => 'required|integer|min:1|max:3999']);
+    public function convert(StoreConversionRequest $request, IntegerConverterInterface $converter ) {
 
-        // Convert to Roman numeral
+        $validated = $request->validated();
         $romanValue = $converter->convertInteger( $validated['integer'] );
-
-        // Store conversion
         Conversion::create(['integer_value' => $validated['integer'], 'roman_value' => $romanValue]);
-
         return response()->json(['roman' => $romanValue]);
     }
 

@@ -20,6 +20,9 @@ class RomanApiTest extends TestCase {
         ]);
     }
 
+# count is incremented
+# validation too high
+# validate string
 
 
 
