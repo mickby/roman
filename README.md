@@ -30,3 +30,30 @@ Please create a [git bundle](https://git-scm.com/docs/git-bundle/) and send the 
 ```
 git bundle create <yourname>.bundle --all --branches
 ```
+
+
+#todo
+/*
+* use interface [x]
+* form request []
+* use REST
+* 3 endpoints
+* 1-3999 [x]
+* most frequently converted
+* last time converted
+* docbocks
+*
+* Endpoints
+* int to numeral store numeral
+* list all "recently" converted ints
+* list top 10 converted ints
+* resource for the response
+* validation not in controller
+* clean code
+* check pSR 12
+* php 8.3 features used?
+*
+* short explanation of approach - could use repository
+* factory could be better?
+* latest features of Laravel
+  */

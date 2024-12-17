@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreConversionRequest;
+use App\Http\Resources\ConversionCollection;
 use App\Http\Resources\ConversionResource;
 use App\Models\Conversion;
 use App\Services\IntegerConverterInterface;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class ConversionController extends Controller {
@@ -19,7 +21,14 @@ class ConversionController extends Controller {
     }
 
     public function recentConversions() {
-        return Conversion::orderBy('created_at', 'desc')->get();
+        #'recent' so just get the ones from today
+
+        $conversions = Conversion::whereDate('created_at', Carbon::today())
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return new ConversionCollection($conversions);
+
     }
 
     public function topConversions() {

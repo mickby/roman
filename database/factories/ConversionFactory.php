@@ -20,7 +20,7 @@ class ConversionFactory extends Factory
      */
     public function definition(): array
     {
-        return [ #todo upgrade this
+        return [
             'integer_value' => $this->faker->numberBetween(1, 3999), // Random integer between 1 and 3999
             'roman_value' => $this->faker->randomElement(['I', 'II', 'III', 'IV', 'V', 'X', 'L', 'C', 'D', 'M']),
         ];

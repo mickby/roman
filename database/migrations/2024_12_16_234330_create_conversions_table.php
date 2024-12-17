@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('conversions', function (Blueprint $table) {
             $table->id();
-            $table->integer('integer_value')->unique();
+            $table->integer('integer_value');
             $table->string('roman_value');
             $table->timestamps();
         });

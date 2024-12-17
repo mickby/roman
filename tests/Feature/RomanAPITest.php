@@ -2,6 +2,7 @@
 
 
 use App\Models\Conversion;
+use Carbon\Carbon;
 use Illuminate\Http\Response;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -40,18 +41,24 @@ class RomanApiTest extends TestCase {
 
     public function test_can_get_recent_conversions()
     {
-        #faker?
-        #model factory
-        #resource collection
+        $conversion = Conversion::factory()->count(10)
+            ->create(['created_at' => now()]);
 
-        $conversion = Conversion::factory()->create(100);
+        #some from yesterday
+        $conversion = Conversion::factory()->count(10)
+            ->create(['created_at' => now()->subDay()]);
 
-        $response = $this->postJson(route('recent'));
+
+        $response = $this->getJson(route('recent'));
+
+        #check that the response contains 10 models that were created today
+        $response->assertStatus(Response::HTTP_OK);
+        $this->assertCount(10, $response->json('data'));
+        foreach ($response->json('data') as $conversion) {
+            $this->assertEquals(Carbon::today()->toDateString(), Carbon::parse($conversion['created_at'])->toDateString());
+        }
 
 
     }
-
-    // use named routes
-    ## todo use constants
 
 }
